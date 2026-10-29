@@ -1,0 +1,67 @@
+﻿.ecar-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-body);
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease;
+}
+
+.ecar-button:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 3px;
+}
+
+.ecar-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ecar-button--primary {
+    background-color: var(--color-brand-primary);
+    color: var(--color-text-primary);
+}
+
+.ecar-button--primary:not(:disabled):hover {
+    background-color: var(--color-brand-hover);
+}
+
+.ecar-button--primary:not(:disabled):active {
+    background-color: var(--color-brand-active);
+}
+
+.ecar-button--secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-strong);
+}
+
+.ecar-button--secondary:not(:disabled):hover {
+    background-color: var(--color-background);
+}
+
+.ecar-button--sm {
+    min-height: 32px;
+    padding: 4px 12px;
+    font-size: var(--font-size-sm);
+}
+
+.ecar-button--md {
+    min-height: 40px;
+    padding: 8px 16px;
+    font-size: var(--font-size-md);
+}
+
+.ecar-button--lg {
+    min-height: 48px;
+    padding: 12px 24px;
+    font-size: var(--font-size-lg);
+}

@@ -1,0 +1,56 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand */
+  --color-brand-primary: #FFB900;
+  --color-brand-hover: #E5A600;
+  --color-brand-active: #CC9400;
+
+  /* Text */
+  --color-text-primary: #000000;
+  --color-text-secondary: #6B7280;
+  --color-text-inverse: #FFFFFF;
+
+  /* Surfaces */
+  --color-background: #F5F7F8;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #111111;
+
+  /* Borders */
+  --color-border: #DDE1E4;
+  --color-border-strong: #9CA3AF;
+
+  /* Feedback */
+  --color-success: #15803D;
+  --color-warning: #B45309;
+  --color-danger: #DC2626;
+  --color-info: #2563EB;
+
+  /* Typography */
+  --font-family-heading: 'Manrope', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+
+  /* Font sizes */
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 10%);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 12%);
+}
