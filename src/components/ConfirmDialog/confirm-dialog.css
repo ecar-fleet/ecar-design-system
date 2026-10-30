@@ -1,0 +1,187 @@
+.ecar-confirm-dialog__layer {
+    position: fixed;
+    z-index: 1100;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-4);
+}
+
+.ecar-confirm-dialog__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 48%);
+    animation: ecar-confirm-dialog-fade-in 160ms ease both;
+}
+
+.ecar-confirm-dialog {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-3);
+    width: 100%;
+    max-width: 440px;
+    padding: var(--spacing-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    outline: none;
+    animation: ecar-confirm-dialog-enter 180ms ease both;
+}
+
+.ecar-confirm-dialog__icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-background);
+    color: var(--color-text-secondary);
+}
+
+.ecar-confirm-dialog--danger .ecar-confirm-dialog__icon {
+    background: rgb(220 38 38 / 10%);
+    color: var(--color-danger);
+}
+
+.ecar-confirm-dialog__content {
+    min-width: 0;
+}
+
+.ecar-confirm-dialog__title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+}
+
+.ecar-confirm-dialog__description {
+    margin: var(--spacing-2) 0 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+.ecar-confirm-dialog__actions {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-3);
+}
+
+.ecar-confirm-dialog__button {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2) var(--spacing-4);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease;
+}
+
+.ecar-confirm-dialog__button:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+}
+
+.ecar-confirm-dialog__button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.ecar-confirm-dialog__button--cancel {
+    border-color: var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+}
+
+.ecar-confirm-dialog__button--cancel:hover:not(:disabled) {
+    background: var(--color-background);
+}
+
+.ecar-confirm-dialog__button--confirm {
+    background: var(--color-brand-primary);
+    color: var(--color-text-primary);
+}
+
+.ecar-confirm-dialog__button--confirm:hover:not(:disabled) {
+    background: var(--color-brand-hover);
+}
+
+.ecar-confirm-dialog--danger .ecar-confirm-dialog__button--confirm {
+    background: var(--color-danger);
+    color: var(--color-text-inverse);
+}
+
+.ecar-confirm-dialog--danger .ecar-confirm-dialog__button--confirm:hover:not(:disabled) {
+    background: #B91C1C;
+}
+
+.ecar-confirm-dialog__loading {
+    grid-column: 1 / -1;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    text-align: right;
+}
+
+@keyframes ecar-confirm-dialog-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ecar-confirm-dialog-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .ecar-confirm-dialog {
+        padding: var(--spacing-4);
+    }
+
+    .ecar-confirm-dialog__actions {
+        flex-direction: column-reverse;
+    }
+
+    .ecar-confirm-dialog__button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ecar-confirm-dialog,
+    .ecar-confirm-dialog__backdrop {
+        animation: none;
+    }
+
+    .ecar-confirm-dialog__button {
+        transition: none;
+    }
+}

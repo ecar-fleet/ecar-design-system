@@ -1,0 +1,247 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Dimensions" />
+
+# Dimensions
+
+Os tokens de dimensão definem tamanhos padronizados para elementos da interface, garantindo consistência visual, alinhamento e previsibilidade entre componentes.
+
+## Princípios
+
+- Componentes equivalentes devem utilizar as mesmas dimensões.
+- Os tamanhos devem ser escolhidos conforme a importância e a densidade da interface.
+- Evite definir alturas e dimensões arbitrárias diretamente nos componentes.
+- Sempre que possível, utilize os tokens definidos em `src/styles/tokens.css`.
+
+---
+
+## 1. Controle de tamanhos
+
+Alturas padronizadas para elementos interativos, como botões, campos de formulário e controles de seleção.
+
+| Token               | Valor | Uso                 |
+| ------------------- | ----: | ------------------- |
+| `--size-control-sm` |  32px | Controles compactos |
+| `--size-control-md` |  40px | Tamanho padrão      |
+| `--size-control-lg` |  48px | Controles maiores   |
+
+### Visualização
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    maxWidth: "420px",
+  }}
+>
+  {[
+    { name: "Small", token: "size-control-sm" },
+    { name: "Medium", token: "size-control-md" },
+    { name: "Large", token: "size-control-lg" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{ display: "flex", alignItems: "center", gap: "16px" }}
+    >
+      <div style={{ width: "100px", fontSize: "13px" }}>{item.name}</div>
+      <div
+        style={{
+          height: `var(--${item.token})`,
+          width: "180px",
+          background: "var(--color-brand-primary)",
+          borderRadius: "var(--radius-sm)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#000",
+          fontSize: "12px",
+          fontWeight: 600,
+        }}
+      >
+        {item.token.replace("size-control-", "")}
+      </div>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **32px:** filtros compactos e interfaces com alta densidade de informação.
+- **40px:** altura padrão para botões, inputs e selects.
+- **48px:** ações de maior destaque e interfaces que exigem áreas interativas maiores.
+
+---
+
+## 2. Icon sizes
+
+Dimensões padronizadas para ícones utilizados em botões, menus, indicadores e elementos informativos.
+
+| Token            | Valor | Uso                  |
+| ---------------- | ----: | -------------------- |
+| `--size-icon-xs` |  12px | Indicadores pequenos |
+| `--size-icon-sm` |  16px | Ícones compactos     |
+| `--size-icon-md` |  20px | Tamanho padrão       |
+| `--size-icon-lg` |  24px | Ícones de destaque   |
+| `--size-icon-xl` |  32px | Ícones grandes       |
+
+### Visualização
+
+<div
+  style={{ display: "flex", alignItems: "end", flexWrap: "wrap", gap: "24px" }}
+>
+  {[
+    { name: "XS", token: "size-icon-xs" },
+    { name: "SM", token: "size-icon-sm" },
+    { name: "MD", token: "size-icon-md" },
+    { name: "LG", token: "size-icon-lg" },
+    { name: "XL", token: "size-icon-xl" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "8px",
+      }}
+    >
+      <div
+        style={{
+          width: `var(--${item.token})`,
+          height: `var(--${item.token})`,
+          background: "var(--color-brand-primary)",
+          borderRadius: "var(--radius-xs)",
+        }}
+      />
+      <strong style={{ fontSize: "12px" }}>{item.name}</strong>
+      <code style={{ fontSize: "11px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **12px:** indicadores auxiliares e elementos pequenos.
+- **16px:** ícones em controles compactos.
+- **20px:** tamanho padrão para ícones em componentes.
+- **24px:** ícones em ações principais e navegação.
+- **32px:** ícones de destaque e estados vazios.
+
+O tamanho do ícone deve respeitar o espaço disponível e manter alinhamento com o texto adjacente.
+
+---
+
+## 3. Tamanhos de avatar
+
+Dimensões padronizadas para representações visuais de usuários, responsáveis e colaboradores.
+
+| Token              | Valor | Uso                |
+| ------------------ | ----: | ------------------ |
+| `--size-avatar-sm` |  32px | Listas compactas   |
+| `--size-avatar-md` |  40px | Tamanho padrão     |
+| `--size-avatar-lg` |  48px | Perfis e detalhes  |
+| `--size-avatar-xl` |  64px | Destaque de perfil |
+
+### Visualização
+
+<div
+  style={{ display: "flex", alignItems: "end", flexWrap: "wrap", gap: "24px" }}
+>
+  {[
+    { name: "Small", token: "size-avatar-sm" },
+    { name: "Medium", token: "size-avatar-md" },
+    { name: "Large", token: "size-avatar-lg" },
+    { name: "Extra Large", token: "size-avatar-xl" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "8px",
+      }}
+    >
+      <div
+        style={{
+          width: `var(--${item.token})`,
+          height: `var(--${item.token})`,
+          borderRadius: "var(--radius-full)",
+          background: "var(--color-brand-primary)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "var(--color-text-primary)",
+          fontWeight: 700,
+          fontSize: "14px",
+        }}
+      >
+        EC
+      </div>
+      <strong style={{ fontSize: "12px" }}>{item.name}</strong>
+      <code style={{ fontSize: "11px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **32px:** tabelas, listas e informações compactas.
+- **40px:** identificação padrão de usuários.
+- **48px:** informações de perfil e responsáveis.
+- **64px:** cabeçalhos e áreas de perfil com maior destaque.
+
+---
+
+## 4. Como utilizar os tokens
+
+Utilize as variáveis CSS diretamente nos componentes.
+
+### Exemplo: botão
+
+```css
+.button {
+  min-height: var(--size-control-md);
+  padding-inline: var(--spacing-4);
+}
+```
+
+### Exemplo: ícone
+
+```css
+.button__icon {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+```
+
+### Exemplo: avatar
+
+```css
+.avatar {
+  width: var(--size-avatar-md);
+  height: var(--size-avatar-md);
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+```
+
+---
+
+## 5. Regras de utilização
+
+1. Não criar dimensões arbitrárias quando existir um token equivalente.
+2. Manter proporções consistentes entre componentes relacionados.
+3. Não confundir tamanho visual do ícone com sua área interativa.
+4. Garantir que controles permaneçam utilizáveis em diferentes resoluções.
+5. Quando uma exceção for necessária, documentar sua justificativa.
+
+---
+
+## Fonte dos tokens
+
+Todos os valores desta documentação estão definidos em:
+
+`src/styles/tokens.css`

@@ -1,0 +1,320 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+A tipografia define como as informações são apresentadas na interface. Ela estabelece hierarquia visual, facilita a leitura e mantém a identidade visual do Ecar Fleet.
+
+O sistema utiliza a família tipográfica **Inter**, com diferentes tamanhos, pesos e alturas de linha.
+
+## Princípios
+
+- Priorizar legibilidade em todas as resoluções.
+- Utilizar pesos tipográficos para estabelecer hierarquia.
+- Manter consistência entre títulos, textos, descrições e informações auxiliares.
+- Evitar tamanhos e pesos arbitrários.
+- Utilizar os tokens tipográficos definidos em `src/styles/tokens.css`.
+
+---
+
+## 1. Font family
+
+| Token                   | Valor             | Aplicação            |
+| ----------------------- | ----------------- | -------------------- |
+| `--font-family-heading` | Inter, sans-serif | Títulos              |
+| `--font-family-body`    | Inter, sans-serif | Textos e componentes |
+
+### Visualização
+
+<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+  <div
+    style={{
+      fontFamily: "var(--font-family-heading)",
+      fontSize: "24px",
+      fontWeight: 700,
+    }}
+  >
+    Ecar Fleet — Heading
+  </div>
+  <div
+    style={{
+      fontFamily: "var(--font-family-body)",
+      fontSize: "16px",
+      fontWeight: 400,
+    }}
+  >
+    Ecar Fleet — Body text
+  </div>
+</div>
+
+---
+
+## 2. Font sizes
+
+Os tamanhos tipográficos definem os níveis de hierarquia da interface.
+
+| Token             | Valor | Aplicação              |
+| ----------------- | ----: | ---------------------- |
+| `--font-size-xs`  |  12px | Informações auxiliares |
+| `--font-size-sm`  |  14px | Textos secundários     |
+| `--font-size-md`  |  16px | Texto padrão           |
+| `--font-size-lg`  |  18px | Textos de destaque     |
+| `--font-size-xl`  |  24px | Títulos de seção       |
+| `--font-size-2xl` |  32px | Títulos principais     |
+
+### Visualização
+
+<div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+  {[
+    { name: "Extra Small", token: "font-size-xs" },
+    { name: "Small", token: "font-size-sm" },
+    { name: "Medium", token: "font-size-md" },
+    { name: "Large", token: "font-size-lg" },
+    { name: "Extra Large", token: "font-size-xl" },
+    { name: "2X Large", token: "font-size-2xl" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{ display: "flex", flexDirection: "column", gap: "4px" }}
+    >
+      <code style={{ fontSize: "12px" }}>--{item.token}</code>
+      <span style={{ fontSize: `var(--${item.token})`, lineHeight: 1.3 }}>
+        Ecar Fleet — Typography
+      </span>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **12px:** legendas, metadados e informações auxiliares.
+- **14px:** descrições, textos secundários e labels.
+- **16px:** texto padrão de leitura.
+- **18px:** textos de destaque e introduções.
+- **24px:** títulos de seções.
+- **32px:** títulos principais de páginas.
+
+---
+
+## 3. Font weights
+
+Os pesos tipográficos determinam a intensidade visual dos textos.
+
+| Token                     | Valor | Aplicação                   |
+| ------------------------- | ----: | --------------------------- |
+| `--font-weight-regular`   |   400 | Textos comuns               |
+| `--font-weight-medium`    |   500 | Labels e textos de apoio    |
+| `--font-weight-semibold`  |   600 | Títulos de componentes      |
+| `--font-weight-bold`      |   700 | Títulos e ações importantes |
+| `--font-weight-extrabold` |   800 | Destaques específicos       |
+
+### Visualização
+
+<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+  {[
+    { name: "Regular", token: "font-weight-regular" },
+    { name: "Medium", token: "font-weight-medium" },
+    { name: "Semibold", token: "font-weight-semibold" },
+    { name: "Bold", token: "font-weight-bold" },
+    { name: "Extrabold", token: "font-weight-extrabold" },
+  ].map((item) => (
+    <div key={item.token}>
+      <code style={{ fontSize: "12px" }}>--{item.token}</code>
+      <div
+        style={{
+          fontSize: "18px",
+          fontWeight: `var(--${item.token})`,
+          marginTop: "4px",
+        }}
+      >
+        Ecar Fleet — {item.name}
+      </div>
+    </div>
+  ))}
+</div>
+
+---
+
+## 4. Line heights
+
+A altura de linha controla o espaçamento vertical entre linhas de texto.
+
+| Token                   | Valor | Aplicação     |
+| ----------------------- | ----: | ------------- |
+| `--line-height-tight`   |  1.25 | Títulos       |
+| `--line-height-normal`  |   1.5 | Textos padrão |
+| `--line-height-relaxed` |  1.75 | Textos longos |
+
+### Visualização
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+    maxWidth: "600px",
+  }}
+>
+  {[
+    { name: "Tight", token: "line-height-tight" },
+    { name: "Normal", token: "line-height-normal" },
+    { name: "Relaxed", token: "line-height-relaxed" },
+  ].map((item) => (
+    <div key={item.token}>
+      <strong style={{ fontSize: "13px" }}>{item.name}</strong>
+      <div
+        style={{
+          fontSize: "14px",
+          lineHeight: `var(--${item.token})`,
+          maxWidth: "480px",
+          marginTop: "6px",
+        }}
+      >
+        A tipografia do Ecar Fleet mantém uma hierarquia consistente e facilita
+        a leitura das informações operacionais em diferentes componentes e
+        contextos.
+      </div>
+      <code style={{ fontSize: "12px" }}>--{item.token}</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## 5. Type hierarchy
+
+A combinação dos tokens estabelece uma hierarquia tipográfica consistente.
+
+| Nível           | Tamanho | Peso     | Line height |
+| --------------- | ------- | -------- | ----------- |
+| Page title      | 32px    | Bold     | Tight       |
+| Section title   | 24px    | Semibold | Tight       |
+| Component title | 18px    | Semibold | Normal      |
+| Body            | 16px    | Regular  | Normal      |
+| Secondary text  | 14px    | Regular  | Normal      |
+| Caption         | 12px    | Regular  | Normal      |
+
+### Exemplo de hierarquia
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    maxWidth: "600px",
+  }}
+>
+  <div
+    style={{
+      fontSize: "var(--font-size-2xl)",
+      fontWeight: "var(--font-weight-bold)",
+      lineHeight: "var(--line-height-tight)",
+    }}
+  >
+    Gestão de frota
+  </div>
+  <div
+    style={{
+      fontSize: "var(--font-size-xl)",
+      fontWeight: "var(--font-weight-semibold)",
+      lineHeight: "var(--line-height-tight)",
+    }}
+  >
+    Visão geral dos veículos
+  </div>
+  <div
+    style={{
+      fontSize: "var(--font-size-lg)",
+      fontWeight: "var(--font-weight-semibold)",
+      lineHeight: "var(--line-height-normal)",
+    }}
+  >
+    Indicadores operacionais
+  </div>
+  <div
+    style={{
+      fontSize: "var(--font-size-md)",
+      fontWeight: "var(--font-weight-regular)",
+      lineHeight: "var(--line-height-normal)",
+    }}
+  >
+    Acompanhe a situação atual da sua frota e consulte as principais informações
+    operacionais.
+  </div>
+  <div
+    style={{
+      fontSize: "var(--font-size-sm)",
+      fontWeight: "var(--font-weight-regular)",
+      color: "var(--color-text-secondary)",
+    }}
+  >
+    Última atualização: hoje às 14:30
+  </div>
+  <div
+    style={{
+      fontSize: "var(--font-size-xs)",
+      fontWeight: "var(--font-weight-regular)",
+      color: "var(--color-text-tertiary)",
+    }}
+  >
+    Dados sujeitos à atualização.
+  </div>
+</div>
+
+---
+
+## 6. Como utilizar os tokens
+
+### Exemplo: título
+
+```css
+.page-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+```
+
+### Exemplo: texto
+
+```css
+.body-text {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+```
+
+### Exemplo: texto auxiliar
+
+```css
+.caption {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-tertiary);
+}
+```
+
+---
+
+## 7. Regras de utilização
+
+1. Utilizar Inter como família tipográfica padrão.
+2. Priorizar os tamanhos definidos nos tokens.
+3. Evitar utilizar muitos pesos diferentes no mesmo contexto.
+4. Manter contraste adequado entre texto e superfície.
+5. Não utilizar textos pequenos para informações essenciais.
+6. Utilizar alturas de linha adequadas ao comprimento do conteúdo.
+7. Não utilizar apenas o tamanho da fonte para comunicar estados ou importância.
+
+---
+
+## Fonte dos tokens
+
+Todos os valores desta documentação estão definidos em:
+
+`src/styles/tokens.css`

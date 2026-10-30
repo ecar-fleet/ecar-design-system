@@ -1,0 +1,222 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Shadows" />
+
+# Shadows
+
+Os tokens de sombra definem a profundidade visual dos elementos da interface. Eles ajudam a estabelecer hierarquia entre superfícies e destacar componentes que aparecem acima do conteúdo principal.
+
+O Ecar Design System utiliza níveis progressivos de elevação, desde elementos discretos até camadas de maior destaque.
+
+## Princípios
+
+- Utilizar sombras para comunicar profundidade e hierarquia.
+- Evitar sombras excessivamente fortes.
+- Manter consistência entre componentes com o mesmo nível de elevação.
+- Não utilizar sombras como substitutas de bordas quando a separação estrutural for necessária.
+- Priorizar os tokens definidos em `src/styles/tokens.css`.
+
+---
+
+## 1. Shadow scale
+
+| Token           | Valor                          | Aplicação              |
+| --------------- | ------------------------------ | ---------------------- |
+| `--shadow-none` | `none`                         | Sem sombra             |
+| `--shadow-xs`   | `0 1px 2px rgb(0 0 0 / 6%)`    | Elevação mínima        |
+| `--shadow-sm`   | `0 1px 3px rgb(0 0 0 / 10%)`   | Elementos discretos    |
+| `--shadow-md`   | `0 4px 12px rgb(0 0 0 / 12%)`  | Elevação intermediária |
+| `--shadow-lg`   | `0 8px 24px rgb(0 0 0 / 14%)`  | Elementos destacados   |
+| `--shadow-xl`   | `0 16px 40px rgb(0 0 0 / 16%)` | Camadas superiores     |
+
+### Visualização
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+    gap: "28px",
+    padding: "24px 8px",
+  }}
+>
+  {[
+    { name: "None", token: "shadow-none" },
+    { name: "Extra Small", token: "shadow-xs" },
+    { name: "Small", token: "shadow-sm" },
+    { name: "Medium", token: "shadow-md" },
+    { name: "Large", token: "shadow-lg" },
+    { name: "Extra Large", token: "shadow-xl" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "12px",
+      }}
+    >
+      <div
+        style={{
+          width: "110px",
+          height: "80px",
+          background: "var(--color-surface)",
+          borderRadius: "var(--radius-md)",
+          boxShadow: `var(--${item.token})`,
+          border: "1px solid var(--color-border)",
+        }}
+      />
+      <strong style={{ fontSize: "12px" }}>{item.name}</strong>
+      <code style={{ fontSize: "11px" }}>--{item.token}</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## 2. Recommended applications
+
+| Componente                  | Token recomendado |
+| --------------------------- | ----------------- |
+| Elementos sem elevação      | `--shadow-none`   |
+| Cards discretos             | `--shadow-xs`     |
+| Cards destacados            | `--shadow-sm`     |
+| Dropdowns e menus           | `--shadow-md`     |
+| Popovers                    | `--shadow-lg`     |
+| Modais e camadas superiores | `--shadow-xl`     |
+
+Essas aplicações são referências iniciais. A escolha final deve considerar o contexto visual e a hierarquia do componente.
+
+---
+
+## 3. Visual hierarchy
+
+As sombras devem reforçar a relação entre os elementos.
+
+<div
+  style={{
+    background: "var(--color-background)",
+    padding: "28px",
+    borderRadius: "var(--radius-lg)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  }}
+>
+  <div
+    style={{
+      background: "var(--color-surface)",
+      padding: "20px",
+      borderRadius: "var(--radius-md)",
+      boxShadow: "var(--shadow-sm)",
+      border: "1px solid var(--color-border)",
+    }}
+  >
+    <strong>Card</strong>
+    <p
+      style={{
+        margin: "6px 0 0",
+        fontSize: "13px",
+        color: "var(--color-text-secondary)",
+      }}
+    >
+      Conteúdo principal da interface.
+    </p>
+  </div>
+  <div
+    style={{
+      background: "var(--color-surface)",
+      padding: "20px",
+      borderRadius: "var(--radius-md)",
+      boxShadow: "var(--shadow-md)",
+      border: "1px solid var(--color-border)",
+      marginLeft: "24px",
+    }}
+  >
+    <strong>Dropdown</strong>
+    <p
+      style={{
+        margin: "6px 0 0",
+        fontSize: "13px",
+        color: "var(--color-text-secondary)",
+      }}
+    >
+      Camada apresentada sobre o conteúdo.
+    </p>
+  </div>
+  <div
+    style={{
+      background: "var(--color-surface)",
+      padding: "20px",
+      borderRadius: "var(--radius-md)",
+      boxShadow: "var(--shadow-xl)",
+      border: "1px solid var(--color-border)",
+      marginLeft: "48px",
+    }}
+  >
+    <strong>Modal</strong>
+    <p
+      style={{
+        margin: "6px 0 0",
+        fontSize: "13px",
+        color: "var(--color-text-secondary)",
+      }}
+    >
+      Camada de maior destaque visual.
+    </p>
+  </div>
+</div>
+
+---
+
+## 4. Como utilizar os tokens
+
+### Exemplo: card
+
+```css
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+```
+
+### Exemplo: dropdown
+
+```css
+.dropdown-menu {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+```
+
+### Exemplo: modal
+
+```css
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+```
+
+---
+
+## 5. Regras de utilização
+
+1. Não utilizar sombras fortes em todos os componentes.
+2. Reservar níveis elevados para elementos que realmente precisam se destacar.
+3. Manter consistência entre componentes com funções semelhantes.
+4. Evitar combinar múltiplas sombras sem necessidade.
+5. Não depender exclusivamente de sombras para comunicar hierarquia.
+6. Considerar a aparência das sombras em fundos claros e escuros.
+
+---
+
+## Fonte dos tokens
+
+Todos os valores desta documentação estão definidos em:
+
+`src/styles/tokens.css`

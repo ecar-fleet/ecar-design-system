@@ -1,0 +1,86 @@
+.ecar-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    width: fit-content;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-family: var(--font-family-body);
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* Sizes */
+
+.ecar-badge--sm {
+    min-height: 20px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+}
+
+.ecar-badge--md {
+    min-height: 24px;
+    padding: 3px 10px;
+    font-size: var(--font-size-sm);
+}
+
+.ecar-badge--lg {
+    min-height: 28px;
+    padding: 4px 12px;
+    font-size: var(--font-size-md);
+}
+
+/* Variants */
+
+.ecar-badge--default {
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+}
+
+.ecar-badge--success {
+    border-color: #BBF7D0;
+    background-color: #F0FDF4;
+    color: #166534;
+}
+
+.ecar-badge--warning {
+    border-color: #FDE68A;
+    background-color: #FFFBEB;
+    color: #92400E;
+}
+
+.ecar-badge--danger {
+    border-color: #FECACA;
+    background-color: #FEF2F2;
+    color: #991B1B;
+}
+
+.ecar-badge--info {
+    border-color: #BFDBFE;
+    background-color: #EFF6FF;
+    color: #1E40AF;
+}
+
+/* Dot */
+
+.ecar-badge__dot {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.ecar-badge--sm .ecar-badge__dot {
+    width: 6px;
+    height: 6px;
+}
+
+.ecar-badge--lg .ecar-badge__dot {
+    width: 8px;
+    height: 8px;
+}

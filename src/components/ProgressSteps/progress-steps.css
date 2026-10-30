@@ -1,0 +1,192 @@
+.ecar-progress-steps {
+    width: 100%;
+    font-family: var(--font-family-body);
+}
+
+.ecar-progress-steps__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ecar-progress-steps--horizontal .ecar-progress-steps__list {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.ecar-progress-steps--vertical .ecar-progress-steps__list {
+    flex-direction: column;
+}
+
+.ecar-progress-steps__item {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: var(--spacing-2);
+}
+
+.ecar-progress-steps--vertical .ecar-progress-steps__item {
+    flex: none;
+    min-height: 76px;
+}
+
+.ecar-progress-steps__indicator-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ecar-progress-steps__indicator {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-border-strong);
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+}
+
+button.ecar-progress-steps__indicator {
+    padding: 0;
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease;
+}
+
+button.ecar-progress-steps__indicator:hover {
+    border-color: var(--color-brand-primary);
+}
+
+button.ecar-progress-steps__indicator:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 3px;
+}
+
+.ecar-progress-steps__connector {
+    position: absolute;
+    top: 15px;
+    left: 31px;
+    width: calc(100% - 31px);
+    height: 2px;
+    background: var(--color-border);
+}
+
+.ecar-progress-steps--vertical .ecar-progress-steps__connector {
+    top: 31px;
+    left: 15px;
+    width: 2px;
+    height: calc(100% + 12px);
+}
+
+.ecar-progress-steps__content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 5px;
+}
+
+.ecar-progress-steps__label {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+}
+
+.ecar-progress-steps__description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+.ecar-progress-steps__error {
+    color: var(--color-danger);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.ecar-progress-steps__item--completed .ecar-progress-steps__indicator {
+    border-color: var(--color-success);
+    background: var(--color-success);
+    color: var(--color-text-inverse);
+}
+
+.ecar-progress-steps__item--completed .ecar-progress-steps__connector {
+    background: var(--color-success);
+}
+
+.ecar-progress-steps__item--completed .ecar-progress-steps__label {
+    color: var(--color-text-primary);
+}
+
+.ecar-progress-steps__item--current .ecar-progress-steps__indicator {
+    border-color: var(--color-brand-primary);
+    background: var(--color-brand-primary);
+    color: var(--color-text-primary);
+}
+
+.ecar-progress-steps__item--current .ecar-progress-steps__label {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.ecar-progress-steps__item--error .ecar-progress-steps__indicator {
+    border-color: var(--color-danger);
+    background: var(--color-danger);
+    color: var(--color-text-inverse);
+}
+
+.ecar-progress-steps__item--error .ecar-progress-steps__label {
+    color: var(--color-danger);
+}
+
+.ecar-progress-steps__item--disabled {
+    opacity: 0.45;
+}
+
+.ecar-progress-steps__item--disabled .ecar-progress-steps__indicator {
+    cursor: not-allowed;
+}
+
+.ecar-progress-steps--vertical .ecar-progress-steps__content {
+    padding-top: 4px;
+    padding-bottom: var(--spacing-4);
+}
+
+@media (max-width: 640px) {
+    .ecar-progress-steps--horizontal .ecar-progress-steps__list {
+        flex-direction: column;
+        gap: var(--spacing-4);
+    }
+
+    .ecar-progress-steps--horizontal .ecar-progress-steps__item {
+        flex: none;
+        min-height: 48px;
+    }
+
+    .ecar-progress-steps--horizontal .ecar-progress-steps__connector {
+        top: 31px;
+        left: 15px;
+        width: 2px;
+        height: calc(100% + 16px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ecar-progress-steps__indicator {
+        transition: none;
+    }
+}

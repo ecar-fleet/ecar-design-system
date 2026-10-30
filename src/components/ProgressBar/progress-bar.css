@@ -1,0 +1,110 @@
+.ecar-progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    width: 100%;
+}
+
+.ecar-progress__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    min-height: 20px;
+}
+
+.ecar-progress__label {
+    overflow: hidden;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-overflow: ellipsis;
+}
+
+.ecar-progress__value {
+    flex: 0 0 auto;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    font-variant-numeric: tabular-nums;
+}
+
+.ecar-progress__track {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 999px;
+    background-color: var(--color-border);
+}
+
+.ecar-progress--sm .ecar-progress__track {
+    height: 4px;
+}
+
+.ecar-progress--md .ecar-progress__track {
+    height: 8px;
+}
+
+.ecar-progress--lg .ecar-progress__track {
+    height: 12px;
+}
+
+.ecar-progress__indicator {
+    height: 100%;
+    border-radius: inherit;
+    transition: width 250ms ease;
+}
+
+/* Variants */
+
+.ecar-progress--brand .ecar-progress__indicator {
+    background-color: var(--color-brand-primary);
+}
+
+.ecar-progress--success .ecar-progress__indicator {
+    background-color: var(--color-success);
+}
+
+.ecar-progress--warning .ecar-progress__indicator {
+    background-color: var(--color-warning);
+}
+
+.ecar-progress--danger .ecar-progress__indicator {
+    background-color: var(--color-danger);
+}
+
+.ecar-progress--info .ecar-progress__indicator {
+    background-color: var(--color-info);
+}
+
+/* Indeterminate */
+
+.ecar-progress--indeterminate .ecar-progress__indicator {
+    position: absolute;
+    width: 35%;
+    animation: ecar-progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes ecar-progress-indeterminate {
+    0% {
+        left: -35%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .ecar-progress__indicator {
+        transition: none;
+    }
+
+    .ecar-progress--indeterminate .ecar-progress__indicator {
+        animation: none;
+        left: 0;
+        width: 35%;
+    }
+}

@@ -1,0 +1,109 @@
+.ecar-textarea {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    width: 100%;
+}
+
+.ecar-textarea__label {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.ecar-textarea__required {
+    color: var(--color-danger);
+}
+
+.ecar-textarea__field {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease,
+        background-color 150ms ease;
+}
+
+.ecar-textarea__field::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 1;
+}
+
+.ecar-textarea__field:hover:not(:disabled):not(:focus) {
+    border-color: var(--color-text-secondary);
+}
+
+.ecar-textarea__field:focus {
+    outline: none;
+    border-color: var(--color-brand-hover);
+    box-shadow: 0 0 0 3px rgb(255 185 0 / 20%);
+}
+
+.ecar-textarea__field:disabled {
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.ecar-textarea__field--sm {
+    min-height: 80px;
+    padding: 6px 10px;
+    font-size: var(--font-size-sm);
+}
+
+.ecar-textarea__field--md {
+    min-height: 120px;
+    padding: 8px 12px;
+    font-size: var(--font-size-md);
+}
+
+.ecar-textarea__field--lg {
+    min-height: 160px;
+    padding: 12px 14px;
+    font-size: var(--font-size-lg);
+}
+
+.ecar-textarea__field--error {
+    border-color: var(--color-danger);
+}
+
+.ecar-textarea__field--error:focus {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgb(220 38 38 / 15%);
+}
+
+.ecar-textarea__footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-2);
+}
+
+.ecar-textarea__message {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+}
+
+.ecar-textarea__message--error {
+    color: var(--color-danger);
+}
+
+.ecar-textarea__counter {
+    flex-shrink: 0;
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+}

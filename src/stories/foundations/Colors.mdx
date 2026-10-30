@@ -1,0 +1,350 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+A paleta de cores estabelece a identidade visual do Ecar Fleet e define como informações, superfícies e estados são apresentados na interface.
+
+As cores são organizadas por finalidade para facilitar a aplicação consistente em todos os componentes.
+
+## Princípios
+
+- Utilizar as cores da marca de forma consistente.
+- Priorizar contraste e legibilidade.
+- Utilizar cores semânticas para comunicar estados.
+- Evitar valores de cores fixos diretamente nos componentes.
+- Utilizar os tokens definidos em `src/styles/tokens.css`.
+
+---
+
+## 1. Brand colors
+
+Cores principais da identidade visual do Ecar Fleet.
+
+| Token                   | Valor     | Aplicação              |
+| ----------------------- | --------- | ---------------------- |
+| `--color-brand-primary` | `#FFB900` | Cor principal da marca |
+| `--color-brand-hover`   | `#E5A600` | Estado hover           |
+| `--color-brand-active`  | `#CC9400` | Estado active          |
+
+### Visualização
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+    gap: "16px",
+  }}
+>
+  {[
+    { name: "Primary", token: "color-brand-primary" },
+    { name: "Hover", token: "color-brand-hover" },
+    { name: "Active", token: "color-brand-active" },
+  ].map((item) => (
+    <div key={item.token}>
+      <div
+        style={{
+          height: "90px",
+          background: `var(--${item.token})`,
+          borderRadius: "var(--radius-md)",
+          border: "1px solid var(--color-border)",
+        }}
+      />
+      <strong style={{ display: "block", marginTop: "8px", fontSize: "13px" }}>
+        {item.name}
+      </strong>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **Primary:** ações principais, elementos de identidade e destaques.
+- **Hover:** interação ao posicionar o cursor sobre elementos acionáveis.
+- **Active:** estado de pressionamento ou ativação.
+
+---
+
+## 2. Text colors
+
+Cores utilizadas para estabelecer hierarquia e legibilidade textual.
+
+| Token                    | Valor     | Aplicação                        |
+| ------------------------ | --------- | -------------------------------- |
+| `--color-text-primary`   | `#000000` | Textos principais                |
+| `--color-text-secondary` | `#6B7280` | Textos secundários               |
+| `--color-text-tertiary`  | `#9CA3AF` | Informações auxiliares           |
+| `--color-text-inverse`   | `#FFFFFF` | Textos sobre superfícies escuras |
+
+### Visualização
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "20px",
+    background: "var(--color-surface)",
+    border: "1px solid var(--color-border)",
+    borderRadius: "var(--radius-md)",
+  }}
+>
+  {[
+    { name: "Primary", token: "color-text-primary" },
+    { name: "Secondary", token: "color-text-secondary" },
+    { name: "Tertiary", token: "color-text-tertiary" },
+  ].map((item) => (
+    <div key={item.token}>
+      <div
+        style={{
+          color: `var(--${item.token})`,
+          fontSize: "16px",
+          fontWeight: 600,
+        }}
+      >
+        Ecar Fleet — {item.name}
+      </div>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+<div
+  style={{
+    background: "var(--color-surface-dark)",
+    padding: "20px",
+    borderRadius: "var(--radius-md)",
+  }}
+>
+  <div
+    style={{
+      color: "var(--color-text-inverse)",
+      fontSize: "16px",
+      fontWeight: 600,
+    }}
+  >
+    Ecar Fleet — Inverse
+  </div>
+  <code style={{ color: "var(--color-text-inverse)", fontSize: "12px" }}>
+    var(--color-text-inverse)
+  </code>
+</div>
+
+### Recomendações
+
+- **Primary:** conteúdo principal, títulos e informações importantes.
+- **Secondary:** descrições, textos auxiliares e metadados.
+- **Tertiary:** informações de menor prioridade visual.
+- **Inverse:** textos apresentados sobre superfícies escuras.
+
+---
+
+## 3. Background and surface colors
+
+Cores que definem o fundo da aplicação e as superfícies dos componentes.
+
+| Token                       | Valor     | Aplicação                    |
+| --------------------------- | --------- | ---------------------------- |
+| `--color-background`        | `#F5F7F8` | Fundo geral da aplicação     |
+| `--color-surface`           | `#FFFFFF` | Cards, formulários e painéis |
+| `--color-surface-secondary` | `#F9FAFB` | Superfícies secundárias      |
+| `--color-surface-dark`      | `#111111` | Superfícies escuras          |
+
+### Visualização
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+    gap: "16px",
+  }}
+>
+  {[
+    { name: "Background", token: "color-background" },
+    { name: "Surface", token: "color-surface" },
+    { name: "Surface Secondary", token: "color-surface-secondary" },
+    { name: "Surface Dark", token: "color-surface-dark" },
+  ].map((item) => (
+    <div key={item.token}>
+      <div
+        style={{
+          height: "90px",
+          background: `var(--${item.token})`,
+          border: "1px solid var(--color-border)",
+          borderRadius: "var(--radius-md)",
+        }}
+      />
+      <strong style={{ display: "block", marginTop: "8px", fontSize: "13px" }}>
+        {item.name}
+      </strong>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **Background:** área principal de navegação e conteúdo.
+- **Surface:** elementos que precisam se destacar do fundo.
+- **Surface Secondary:** áreas de apoio, agrupamentos e conteúdos alternativos.
+- **Surface Dark:** áreas escuras de destaque, quando apropriado.
+
+---
+
+## 4. Border colors
+
+Cores utilizadas para delimitar e separar elementos.
+
+| Token                   | Valor     | Aplicação          |
+| ----------------------- | --------- | ------------------ |
+| `--color-border`        | `#DDE1E4` | Bordas padrão      |
+| `--color-border-strong` | `#9CA3AF` | Bordas de destaque |
+
+### Visualização
+
+<div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
+  {[
+    { name: "Default", token: "color-border" },
+    { name: "Strong", token: "color-border-strong" },
+  ].map((item) => (
+    <div key={item.token} style={{ flex: "1 1 180px" }}>
+      <div
+        style={{
+          height: "70px",
+          border: `2px solid var(--${item.token})`,
+          borderRadius: "var(--radius-md)",
+        }}
+      />
+      <strong style={{ display: "block", marginTop: "8px", fontSize: "13px" }}>
+        {item.name}
+      </strong>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## 5. Semantic colors
+
+Cores utilizadas para comunicar estados e resultados de operações.
+
+| Token             | Valor     | Significado               |
+| ----------------- | --------- | ------------------------- |
+| `--color-success` | `#15803D` | Sucesso e conclusão       |
+| `--color-warning` | `#B45309` | Atenção e alerta          |
+| `--color-danger`  | `#DC2626` | Erros e ações críticas    |
+| `--color-info`    | `#2563EB` | Informações e orientações |
+
+### Visualização
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+    gap: "16px",
+  }}
+>
+  {[
+    { name: "Success", token: "color-success" },
+    { name: "Warning", token: "color-warning" },
+    { name: "Danger", token: "color-danger" },
+    { name: "Info", token: "color-info" },
+  ].map((item) => (
+    <div key={item.token}>
+      <div
+        style={{
+          height: "64px",
+          background: `var(--${item.token})`,
+          borderRadius: "var(--radius-md)",
+        }}
+      />
+      <strong style={{ display: "block", marginTop: "8px", fontSize: "13px" }}>
+        {item.name}
+      </strong>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+### Aplicações
+
+- **Success:** operação concluída, veículo disponível ou processo aprovado.
+- **Warning:** manutenção próxima, pendência ou situação que exige atenção.
+- **Danger:** falha, erro, bloqueio ou operação crítica.
+- **Info:** orientação, atualização ou informação complementar.
+
+Cores semânticas devem ser acompanhadas de texto, ícone ou outro indicador. Não dependa exclusivamente da cor para comunicar um estado.
+
+---
+
+## 6. Como utilizar os tokens
+
+### Exemplo: botão principal
+
+```css
+.button-primary {
+  background: var(--color-brand-primary);
+  color: var(--color-text-primary);
+}
+
+.button-primary:hover {
+  background: var(--color-brand-hover);
+}
+
+.button-primary:active {
+  background: var(--color-brand-active);
+}
+```
+
+### Exemplo: card
+
+```css
+.card {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+```
+
+### Exemplo: status
+
+```css
+.status-success {
+  color: var(--color-success);
+}
+
+.status-warning {
+  color: var(--color-warning);
+}
+
+.status-danger {
+  color: var(--color-danger);
+}
+
+.status-info {
+  color: var(--color-info);
+}
+```
+
+---
+
+## 7. Regras de utilização
+
+1. Utilizar os tokens de marca para preservar a identidade visual.
+2. Manter contraste suficiente entre texto e fundo.
+3. Utilizar cores semânticas de acordo com seu significado.
+4. Não utilizar cores semânticas como decoração sem justificativa.
+5. Evitar valores hexadecimais diretamente nos estilos dos componentes.
+6. Não depender exclusivamente de cores para transmitir informações.
+7. Testar estados de interação e acessibilidade.
+
+---
+
+## Fonte dos tokens
+
+Todos os valores desta documentação estão definidos em:
+
+`src/styles/tokens.css`

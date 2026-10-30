@@ -1,0 +1,72 @@
+.ecar-time-picker {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    width: 100%;
+}
+
+.ecar-time-picker__label {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.ecar-time-picker__required {
+    color: var(--color-danger);
+}
+
+.ecar-time-picker__input {
+    width: 100%;
+    min-height: 42px;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-md);
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.ecar-time-picker__input:hover:not(:disabled) {
+    border-color: var(--color-border-strong);
+}
+
+.ecar-time-picker__input:focus {
+    outline: none;
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 0 3px rgb(255 185 0 / 20%);
+}
+
+.ecar-time-picker__input--error {
+    border-color: var(--color-danger);
+}
+
+.ecar-time-picker__input--error:focus {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgb(220 38 38 / 12%);
+}
+
+.ecar-time-picker__input:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+.ecar-time-picker__helper,
+.ecar-time-picker__error {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+.ecar-time-picker__helper {
+    color: var(--color-text-secondary);
+}
+
+.ecar-time-picker__error {
+    color: var(--color-danger);
+}

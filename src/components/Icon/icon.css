@@ -1,0 +1,43 @@
+.ecar-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* Cores */
+
+.ecar-icon--current {
+    color: currentColor;
+}
+
+.ecar-icon--primary {
+    color: var(--color-text-primary);
+}
+
+.ecar-icon--secondary {
+    color: var(--color-text-secondary);
+}
+
+.ecar-icon--inverse {
+    color: var(--color-text-inverse);
+}
+
+.ecar-icon--brand {
+    color: var(--color-brand-primary);
+}
+
+.ecar-icon--success {
+    color: var(--color-success);
+}
+
+.ecar-icon--warning {
+    color: var(--color-warning);
+}
+
+.ecar-icon--danger {
+    color: var(--color-danger);
+}
+
+.ecar-icon--info {
+    color: var(--color-info);
+}

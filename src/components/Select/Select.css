@@ -1,0 +1,118 @@
+.ecar-select {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    width: 100%;
+}
+
+.ecar-select__label {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.ecar-select__required {
+    color: var(--color-danger);
+}
+
+.ecar-select__control {
+    position: relative;
+    width: 100%;
+}
+
+.ecar-select__field {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    cursor: pointer;
+    padding-right: 40px;
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease,
+        background-color 150ms ease;
+}
+
+.ecar-select__field:hover:not(:disabled):not(:focus) {
+    border-color: var(--color-text-secondary);
+}
+
+.ecar-select__field:focus {
+    outline: none;
+    border-color: var(--color-brand-hover);
+    box-shadow: 0 0 0 3px rgb(255 185 0 / 20%);
+}
+
+.ecar-select__field:disabled {
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.ecar-select__field--sm {
+    min-height: 32px;
+    padding: 4px 36px 4px 10px;
+    font-size: var(--font-size-sm);
+}
+
+.ecar-select__field--md {
+    min-height: 40px;
+    padding: 8px 40px 8px 12px;
+    font-size: var(--font-size-md);
+}
+
+.ecar-select__field--lg {
+    min-height: 48px;
+    padding: 12px 44px 12px 14px;
+    font-size: var(--font-size-lg);
+}
+
+.ecar-select__field--error {
+    border-color: var(--color-danger);
+}
+
+.ecar-select__field--error:focus {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgb(220 38 38 / 15%);
+}
+
+.ecar-select__icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-secondary);
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.ecar-select__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.ecar-select__message {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+}
+
+.ecar-select__message--error {
+    color: var(--color-danger);
+}

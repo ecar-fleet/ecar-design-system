@@ -1,0 +1,247 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Z-Index" />
+
+# Z-Index
+
+O Z-Index controla a ordem de sobreposição dos elementos da interface.
+
+O Ecar Design System define uma escala centralizada para organizar componentes em diferentes níveis de profundidade, evitando conflitos visuais entre elementos.
+
+## Princípios
+
+- Utilizar os tokens de Z-Index definidos no Design System.
+- Manter uma hierarquia previsível entre componentes.
+- Evitar valores arbitrários diretamente nos estilos.
+- Garantir que elementos interativos permaneçam acessíveis.
+- Não utilizar Z-Index elevado como solução automática para problemas de posicionamento.
+
+---
+
+## 1. Z-Index scale
+
+| Token          | Valor | Aplicação                         |
+| -------------- | ----: | --------------------------------- |
+| `--z-base`     |     0 | Conteúdo padrão                   |
+| `--z-dropdown` |   100 | Dropdowns e menus                 |
+| `--z-sticky`   |   200 | Elementos fixos durante a rolagem |
+| `--z-overlay`  |   900 | Camadas de sobreposição           |
+| `--z-modal`    |  1000 | Modais e diálogos                 |
+| `--z-popover`  |  1100 | Popovers                          |
+| `--z-toast`    |  1200 | Notificações                      |
+| `--z-tooltip`  |  1300 | Tooltips                          |
+
+---
+
+## 2. Visualização da hierarquia
+
+A representação abaixo demonstra a progressão dos níveis de sobreposição.
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    padding: "20px",
+    background: "var(--color-background)",
+    borderRadius: "var(--radius-lg)",
+    overflow: "hidden",
+  }}
+>
+  {[
+    { name: "Base", token: "z-base" },
+    { name: "Dropdown", token: "z-dropdown" },
+    { name: "Sticky", token: "z-sticky" },
+    { name: "Overlay", token: "z-overlay" },
+    { name: "Modal", token: "z-modal" },
+    { name: "Popover", token: "z-popover" },
+    { name: "Toast", token: "z-toast" },
+    { name: "Tooltip", token: "z-tooltip" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: "12px",
+        padding: "12px 16px",
+        background: "var(--color-surface)",
+        border: "1px solid var(--color-border)",
+        borderLeft: "4px solid var(--color-brand-primary)",
+        borderRadius: "var(--radius-sm)",
+      }}
+    >
+      <strong style={{ fontSize: "13px" }}>{item.name}</strong>
+      <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## 3. Camadas e aplicações
+
+### Base — 0
+
+Conteúdo padrão da aplicação.
+
+Exemplos:
+
+- Textos e elementos comuns.
+- Cards.
+- Conteúdo de páginas.
+
+### Dropdown — 100
+
+Elementos que aparecem sobre o conteúdo principal.
+
+Exemplos:
+
+- Menus de seleção.
+- Dropdowns.
+- Menus contextuais.
+
+### Sticky — 200
+
+Elementos que permanecem visíveis durante a rolagem.
+
+Exemplos:
+
+- Cabeçalhos fixos.
+- Barras de navegação.
+- Elementos de navegação persistentes.
+
+### Overlay — 900
+
+Camadas utilizadas para sobrepor ou escurecer o conteúdo de fundo.
+
+Exemplos:
+
+- Backdrops.
+- Fundos de modais.
+- Camadas de bloqueio visual.
+
+### Modal — 1000
+
+Janelas de diálogo que exigem atenção ou interação do usuário.
+
+Exemplos:
+
+- Formulários em modal.
+- Confirmações.
+- Diálogos de edição.
+
+### Popover — 1100
+
+Conteúdos contextuais apresentados acima de outros elementos.
+
+Exemplos:
+
+- Painéis de ações.
+- Informações contextuais.
+- Conteúdos flutuantes.
+
+### Toast — 1200
+
+Notificações temporárias apresentadas ao usuário.
+
+Exemplos:
+
+- Operações concluídas.
+- Mensagens de erro.
+- Avisos de processamento.
+
+### Tooltip — 1300
+
+Informações auxiliares apresentadas em resposta à interação com elementos.
+
+Exemplos:
+
+- Descrições de ícones.
+- Ajuda contextual.
+- Informações complementares.
+
+---
+
+## 4. Como utilizar os tokens
+
+### Exemplo: dropdown
+
+```css
+.dropdown-menu {
+  position: absolute;
+  z-index: var(--z-dropdown);
+}
+```
+
+### Exemplo: header sticky
+
+```css
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+```
+
+### Exemplo: modal
+
+```css
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+}
+
+.modal {
+  position: fixed;
+  z-index: var(--z-modal);
+}
+```
+
+### Exemplo: toast
+
+```css
+.toast-container {
+  position: fixed;
+  z-index: var(--z-toast);
+}
+```
+
+### Exemplo: tooltip
+
+```css
+.tooltip {
+  position: absolute;
+  z-index: var(--z-tooltip);
+}
+```
+
+---
+
+## 5. Regras de utilização
+
+1. Não criar valores de Z-Index arbitrários quando existir um token adequado.
+2. Manter a ordem de sobreposição definida nesta documentação.
+3. Utilizar `position` compatível com a aplicação do Z-Index.
+4. Considerar os contextos de empilhamento (_stacking contexts_) criados por propriedades como `transform`, `opacity` e `isolation`.
+5. Não aumentar o Z-Index indiscriminadamente para corrigir conflitos.
+6. Garantir que modais, notificações e tooltips não fiquem escondidos por outros componentes.
+7. Testar a sobreposição em diferentes fluxos e resoluções.
+
+---
+
+## 6. Observação técnica
+
+O valor de Z-Index não garante, sozinho, que um elemento fique acima de todos os outros.
+
+Elementos podem pertencer a diferentes contextos de empilhamento. Por isso, componentes como modais e notificações globais devem ser posicionados considerando também a estrutura da aplicação e, quando necessário, utilizar React Portals.
+
+---
+
+## Fonte dos tokens
+
+Todos os valores desta documentação estão definidos em:
+
+`src/styles/tokens.css`

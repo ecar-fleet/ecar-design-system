@@ -1,0 +1,198 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Borders" />
+
+# Borders
+
+Os tokens de borda definem cores e espessuras utilizadas para separar, delimitar e destacar elementos da interface.
+
+O objetivo é manter consistência visual entre formulários, tabelas, cards, menus, diálogos e demais componentes.
+
+## Princípios
+
+- Utilize bordas para estabelecer hierarquia e separação visual.
+- Prefira bordas discretas em elementos comuns.
+- Utilize bordas mais fortes quando houver necessidade de destaque.
+- Evite definir cores e espessuras arbitrárias nos componentes.
+
+---
+
+## 1. Border colors
+
+As cores de borda são utilizadas para delimitar superfícies e indicar separações entre elementos.
+
+| Token                   | Valor     | Aplicação                |
+| ----------------------- | --------- | ------------------------ |
+| `--color-border`        | `#DDE1E4` | Bordas padrão            |
+| `--color-border-strong` | `#9CA3AF` | Bordas de maior destaque |
+
+### Visualização
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+    maxWidth: "520px",
+  }}
+>
+  {[
+    { name: "Default", token: "color-border" },
+    { name: "Strong", token: "color-border-strong" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{ display: "flex", alignItems: "center", gap: "16px" }}
+    >
+      <div
+        style={{
+          width: "140px",
+          height: "64px",
+          border: `2px solid var(--${item.token})`,
+          borderRadius: "var(--radius-md)",
+          background: "var(--color-surface)",
+        }}
+      />
+      <div>
+        <strong style={{ fontSize: "13px" }}>{item.name}</strong>
+        <div>
+          <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **Default:** inputs, cards, tabelas, divisores e contornos comuns.
+- **Strong:** elementos que precisam de maior contraste ou destaque estrutural.
+
+---
+
+## 2. Border widths
+
+Os tokens de espessura controlam a largura das bordas.
+
+| Token                   | Valor | Aplicação           |
+| ----------------------- | ----: | ------------------- |
+| `--border-width-none`   |     0 | Sem borda           |
+| `--border-width-thin`   |   1px | Bordas padrão       |
+| `--border-width-medium` |   2px | Destaques e estados |
+| `--border-width-thick`  |   3px | Ênfase visual       |
+
+### Visualização
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+    maxWidth: "520px",
+  }}
+>
+  {[
+    { name: "None", token: "border-width-none" },
+    { name: "Thin", token: "border-width-thin" },
+    { name: "Medium", token: "border-width-medium" },
+    { name: "Thick", token: "border-width-thick" },
+  ].map((item) => (
+    <div
+      key={item.token}
+      style={{ display: "flex", alignItems: "center", gap: "16px" }}
+    >
+      <div
+        style={{
+          width: "160px",
+          height: "48px",
+          border: `var(--${item.token}) solid var(--color-border-strong)`,
+          borderRadius: "var(--radius-sm)",
+          background: "var(--color-surface)",
+        }}
+      />
+      <div>
+        <strong style={{ fontSize: "13px" }}>{item.name}</strong>
+        <div>
+          <code style={{ fontSize: "12px" }}>var(--{item.token})</code>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+### Recomendações
+
+- **0px:** componentes sem contorno visual.
+- **1px:** espessura padrão para inputs, cards e divisores.
+- **2px:** estados de foco, seleção e destaque.
+- **3px:** situações específicas que exigem maior ênfase.
+
+---
+
+## 3. Combinações recomendadas
+
+A escolha da cor e da espessura deve considerar a finalidade da borda.
+
+| Elemento             | Cor                     | Espessura               |
+| -------------------- | ----------------------- | ----------------------- |
+| Input padrão         | `--color-border`        | `--border-width-thin`   |
+| Card                 | `--color-border`        | `--border-width-thin`   |
+| Divisor              | `--color-border`        | `--border-width-thin`   |
+| Input em destaque    | `--color-border-strong` | `--border-width-medium` |
+| Elemento selecionado | `--color-brand-primary` | `--border-width-medium` |
+| Contorno de ênfase   | `--color-border-strong` | `--border-width-thick`  |
+
+---
+
+## 4. Como utilizar os tokens
+
+### Exemplo: input
+
+```css
+.input {
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.input:focus {
+  border-width: var(--border-width-medium);
+  border-color: var(--color-brand-primary);
+}
+```
+
+### Exemplo: card
+
+```css
+.card {
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+```
+
+### Exemplo: divisor
+
+```css
+.divider {
+  border: 0;
+  border-top: var(--border-width-thin) solid var(--color-border);
+}
+```
+
+---
+
+## 5. Regras de utilização
+
+1. Utilize `--color-border` como cor padrão.
+2. Reserve `--color-border-strong` para situações que precisam de maior contraste.
+3. Utilize 1px como espessura padrão.
+4. Não utilize bordas grossas sem uma justificativa visual ou funcional.
+5. Estados de foco devem possuir contraste perceptível e não depender apenas de uma mudança sutil de cor.
+6. Não confunda bordas decorativas com indicadores de estado.
+
+---
+
+## Fonte dos tokens
+
+Todos os valores desta documentação estão definidos em:
+
+`src/styles/tokens.css`

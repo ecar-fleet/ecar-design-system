@@ -1,0 +1,155 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Spacing" />
+
+# Spacing
+
+A escala de espaçamento da Ecarfleet estabelece uma linguagem visual consistente para organizar componentes, formulários, páginas e áreas de conteúdo.
+
+Todos os valores seguem uma escala baseada em múltiplos de 4px, facilitando a composição de interfaces previsíveis e consistentes.
+
+## Princípios
+
+- Utilizar os tokens existentes em vez de criar medidas arbitrárias.
+- Preferir espaçamentos da escala de 4px.
+- Manter distâncias consistentes entre elementos com a mesma função.
+- Utilizar valores maiores para separar grupos e seções.
+- Evitar misturar valores equivalentes sem uma justificativa visual.
+
+## Escala de espaçamento
+
+| Token          |   Valor | Equivalência |
+| -------------- | ------: | ------------ |
+| `--spacing-0`  |       0 | 0px          |
+| `--spacing-1`  | 0.25rem | 4px          |
+| `--spacing-2`  |  0.5rem | 8px          |
+| `--spacing-3`  | 0.75rem | 12px         |
+| `--spacing-4`  |    1rem | 16px         |
+| `--spacing-5`  | 1.25rem | 20px         |
+| `--spacing-6`  |  1.5rem | 24px         |
+| `--spacing-8`  |    2rem | 32px         |
+| `--spacing-10` |  2.5rem | 40px         |
+| `--spacing-12` |    3rem | 48px         |
+| `--spacing-16` |    4rem | 64px         |
+| `--spacing-20` |    5rem | 80px         |
+| `--spacing-24` |    6rem | 96px         |
+
+## Visualização da escala
+
+Os indicadores abaixo utilizam diretamente as variáveis CSS definidas em `tokens.css`.
+
+<div style={{ display: "grid", gap: "12px", marginTop: "24px" }}>
+  {[
+    ["spacing-1", "4px"],
+    ["spacing-2", "8px"],
+    ["spacing-3", "12px"],
+    ["spacing-4", "16px"],
+    ["spacing-5", "20px"],
+    ["spacing-6", "24px"],
+    ["spacing-8", "32px"],
+    ["spacing-10", "40px"],
+    ["spacing-12", "48px"],
+    ["spacing-16", "64px"],
+    ["spacing-20", "80px"],
+    ["spacing-24", "96px"],
+  ].map(([token, value]) => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "120px 1fr 48px",
+        alignItems: "center",
+        gap: "12px",
+      }}
+    >
+      <code>{token}</code>
+      <div
+        style={{
+          height: "12px",
+          background: "var(--color-surface-secondary)",
+          borderRadius: "4px",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            width: `var(--${token})`,
+            height: "12px",
+            background: "var(--color-brand-primary)",
+            borderRadius: "4px",
+          }}
+        />
+      </div>
+      <span style={{ fontSize: "12px", color: "var(--color-text-secondary)" }}>
+        {value}
+      </span>
+    </div>
+  ))}
+</div>
+
+## Aplicação recomendada
+
+| Contexto                             | Token recomendado               |
+| ------------------------------------ | ------------------------------- |
+| Distância entre ícone e texto        | `--spacing-2`                   |
+| Espaçamento interno de controles     | `--spacing-2` a `--spacing-3`   |
+| Distância entre campos de formulário | `--spacing-4`                   |
+| Padding de cards                     | `--spacing-6`                   |
+| Separação entre grupos               | `--spacing-8`                   |
+| Separação entre seções               | `--spacing-12`                  |
+| Espaçamento de grandes áreas         | `--spacing-16` a `--spacing-24` |
+
+Esses valores são referências iniciais. Componentes específicos podem utilizar outras medidas da escala quando houver justificativa de layout.
+
+## Exemplos de utilização
+
+### Espaçamento entre elementos
+
+```css
+.ecar-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+```
+
+### Padding de um card
+
+```css
+.ecar-card {
+  padding: var(--spacing-6);
+}
+```
+
+### Distância entre ícone e texto
+
+```css
+.ecar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+```
+
+### Separação entre seções
+
+```css
+.ecar-section + .ecar-section {
+  margin-top: var(--spacing-12);
+}
+```
+
+## Regras de utilização
+
+1. Não utilizar valores fixos quando existir um token equivalente.
+2. Não criar novos tokens para necessidades pontuais.
+3. Não utilizar espaçamento para compensar problemas de alinhamento que deveriam ser resolvidos com Flexbox ou Grid.
+4. Não misturar escalas diferentes entre componentes equivalentes.
+5. Manter a consistência entre desktop e dispositivos móveis.
+
+## Fonte dos valores
+
+Todos os valores desta documentação são definidos em:
+
+`src/styles/tokens.css`
+
+Os tokens CSS são a fonte oficial dos valores de espaçamento do Ecarfleet Design System.

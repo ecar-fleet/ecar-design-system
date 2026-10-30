@@ -1,0 +1,136 @@
+.ecar-modal {
+    width: calc(100% - 32px);
+    max-width: 560px;
+    max-height: calc(100% - 48px);
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-md);
+    overflow: auto;
+    font-family: var(--font-family-body);
+}
+
+.ecar-modal::backdrop {
+    background-color: rgb(0 0 0 / 50%);
+    backdrop-filter: blur(2px);
+}
+
+.ecar-modal[open] {
+    animation: ecar-modal-enter 180ms ease-out;
+}
+
+/* Sizes */
+
+.ecar-modal--sm {
+    max-width: 400px;
+}
+
+.ecar-modal--md {
+    max-width: 560px;
+}
+
+.ecar-modal--lg {
+    max-width: 800px;
+}
+
+/* Container */
+
+.ecar-modal__container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* Header */
+
+.ecar-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ecar-modal__title {
+    margin: 0;
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.ecar-modal__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.ecar-modal__close:hover {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.ecar-modal__close:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 2px;
+}
+
+.ecar-modal__close svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Body */
+
+.ecar-modal__body {
+    padding: var(--spacing-6);
+}
+
+/* Animation */
+
+@keyframes ecar-modal-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ecar-modal[open] {
+        animation: none;
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+    .ecar-modal {
+        width: calc(100% - 24px);
+        max-height: calc(100% - 24px);
+    }
+
+    .ecar-modal__header {
+        padding: var(--spacing-4);
+    }
+
+    .ecar-modal__body {
+        padding: var(--spacing-4);
+    }
+}

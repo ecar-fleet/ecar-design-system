@@ -1,0 +1,129 @@
+.ecar-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.ecar-radio-group__legend {
+    margin-bottom: var(--spacing-1);
+    padding: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.ecar-radio-group__required {
+    color: var(--color-danger);
+}
+
+.ecar-radio-group__options {
+    display: flex;
+    gap: var(--spacing-3);
+}
+
+.ecar-radio-group--vertical .ecar-radio-group__options {
+    flex-direction: column;
+}
+
+.ecar-radio-group--horizontal .ecar-radio-group__options {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ecar-radio-group__option {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.ecar-radio-group__input {
+    appearance: none;
+    position: relative;
+    display: inline-grid;
+    place-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.ecar-radio-group__input:hover:not(:disabled):not(:checked) {
+    border-color: var(--color-text-secondary);
+}
+
+.ecar-radio-group__input:checked {
+    border: 2px solid var(--color-brand-primary);
+    background-color: var(--color-surface);
+}
+
+.ecar-radio-group__input:checked::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-brand-primary);
+}
+
+.ecar-radio-group__input:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 3px;
+}
+
+.ecar-radio-group__input:disabled {
+    background-color: var(--color-background);
+    border-color: var(--color-border);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.ecar-radio-group__input:checked:disabled {
+    border-color: var(--color-border-strong);
+}
+
+.ecar-radio-group__input:checked:disabled::after {
+    background-color: var(--color-text-secondary);
+}
+
+.ecar-radio-group__label {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ecar-radio-group__input:disabled+.ecar-radio-group__label {
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+}
+
+.ecar-radio-group__message {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+}
+
+.ecar-radio-group__message--error {
+    color: var(--color-danger);
+}
+
+.ecar-radio-group:disabled .ecar-radio-group__legend {
+    color: var(--color-text-secondary);
+}

@@ -1,0 +1,107 @@
+.ecar-dropdown {
+    position: relative;
+    display: inline-flex;
+    font-family: var(--font-family-body);
+}
+
+.ecar-dropdown__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        color 150ms ease,
+        border-color 150ms ease;
+}
+
+.ecar-dropdown__trigger:hover {
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.ecar-dropdown__trigger:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+}
+
+.ecar-dropdown__menu {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 6px);
+    min-width: 190px;
+    padding: var(--spacing-1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-md);
+}
+
+.ecar-dropdown__menu--right {
+    right: 0;
+}
+
+.ecar-dropdown__menu--left {
+    left: 0;
+}
+
+.ecar-dropdown__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    width: 100%;
+    min-height: 38px;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        color 150ms ease;
+}
+
+.ecar-dropdown__item:hover:not(:disabled) {
+    background-color: var(--color-background);
+}
+
+.ecar-dropdown__item:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: -2px;
+}
+
+.ecar-dropdown__item:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.ecar-dropdown__item--destructive {
+    color: var(--color-danger);
+}
+
+.ecar-dropdown__item--destructive:hover:not(:disabled) {
+    background-color: rgb(220 38 38 / 8%);
+}
+
+.ecar-dropdown__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: inherit;
+}

@@ -1,0 +1,109 @@
+.ecar-popover {
+    position: relative;
+    display: inline-flex;
+    max-width: 100%;
+    font-family: var(--font-family-body);
+}
+
+.ecar-popover__trigger {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease;
+}
+
+.ecar-popover__trigger:hover:not(:disabled) {
+    border-color: var(--color-border-strong);
+    background: var(--color-background);
+}
+
+.ecar-popover__trigger:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+}
+
+.ecar-popover__trigger:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.ecar-popover__trigger-content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.ecar-popover__trigger-icon {
+    flex-shrink: 0;
+    color: var(--color-text-secondary);
+    transition: transform 150ms ease;
+}
+
+.ecar-popover--open .ecar-popover__trigger-icon {
+    transform: rotate(180deg);
+}
+
+.ecar-popover__content {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + var(--spacing-2));
+    width: max-content;
+    min-width: 220px;
+    max-width: min(320px, calc(100vw - 32px));
+    padding: var(--spacing-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    color: var(--color-text-primary);
+    animation: ecar-popover-enter 120ms ease both;
+}
+
+.ecar-popover--start .ecar-popover__content {
+    left: 0;
+}
+
+.ecar-popover--center .ecar-popover__content {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ecar-popover--end .ecar-popover__content {
+    right: 0;
+}
+
+@keyframes ecar-popover-enter {
+    from {
+        opacity: 0;
+        translate: 0 -4px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ecar-popover__trigger,
+    .ecar-popover__trigger-icon {
+        transition: none;
+    }
+
+    .ecar-popover__content {
+        animation: none;
+    }
+}

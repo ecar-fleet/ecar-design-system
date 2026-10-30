@@ -1,0 +1,50 @@
+<style>
+    /* Barra superior do Preview */
+    .sb-preview-toolbar {
+        background-color: #111111 !important;
+        border-bottom: 1px solid #292929 !important;
+    }
+
+    /* Ícones e controles */
+    .sb-preview-toolbar button,
+    .sb-preview-toolbar a {
+        color: #FFFFFF !important;
+        opacity: 1 !important;
+        transition:
+            background-color 150ms ease,
+            color 150ms ease,
+            box-shadow 150ms ease;
+    }
+
+    /* Hover */
+    .sb-preview-toolbar button:hover,
+    .sb-preview-toolbar a:hover {
+        background-color: #333333 !important;
+        color: #FFB900 !important;
+    }
+
+    /* Item selecionado ou ativo */
+    .sb-preview-toolbar button[aria-pressed="true"],
+    .sb-preview-toolbar button[aria-selected="true"],
+    .sb-preview-toolbar a[aria-current="true"] {
+        background-color: #FFB900 !important;
+        color: #111111 !important;
+        box-shadow: inset 0 -3px 0 #FFFFFF !important;
+    }
+
+    /* Foco pelo teclado */
+    .sb-preview-toolbar button:focus-visible,
+    .sb-preview-toolbar a:focus-visible {
+        outline: 2px solid #FFB900 !important;
+        outline-offset: -2px;
+    }
+
+    /* SVGs dos ícones */
+    .sb-preview-toolbar button svg,
+    .sb-preview-toolbar a svg {
+        color: inherit !important;
+        fill: none;
+        stroke: currentColor;
+    }
+
+    </style>

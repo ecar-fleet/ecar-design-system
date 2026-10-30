@@ -1,0 +1,139 @@
+.ecar-search-input {
+    display: flex;
+    width: 100%;
+    min-height: 42px;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: 0 var(--spacing-3);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.ecar-search-input:focus-within {
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 0 3px rgb(255 185 0 / 20%);
+}
+
+.ecar-search-input--disabled {
+    background: var(--color-background);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.ecar-search-input__icon {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    color: var(--color-text-secondary);
+    cursor: text;
+}
+
+.ecar-search-input__field {
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    padding: var(--spacing-2) 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+}
+
+.ecar-search-input__field::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.ecar-search-input__field:disabled {
+    cursor: not-allowed;
+}
+
+/* Remove o botão nativo de limpeza do input search no Chromium. */
+.ecar-search-input__field::-webkit-search-cancel-button {
+    display: none;
+}
+
+.ecar-search-input__clear,
+.ecar-search-input__submit {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.ecar-search-input__clear {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    color: var(--color-text-secondary);
+}
+
+.ecar-search-input__clear:hover {
+    background: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.ecar-search-input__submit {
+    min-height: 30px;
+    padding: 0 var(--spacing-3);
+    background: var(--color-brand-primary);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+.ecar-search-input__submit:hover:not(:disabled) {
+    background: var(--color-brand-hover);
+}
+
+.ecar-search-input__submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.ecar-search-input__clear:focus-visible,
+.ecar-search-input__submit:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+}
+
+.ecar-search-input__loading {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    color: var(--color-brand-primary);
+    animation: ecar-search-spin 900ms linear infinite;
+}
+
+.ecar-search-input__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@keyframes ecar-search-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ecar-search-input,
+    .ecar-search-input__loading {
+        transition: none;
+        animation: none;
+    }
+}

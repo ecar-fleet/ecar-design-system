@@ -1,0 +1,93 @@
+.ecar-typography {
+    margin: 0;
+    font-family: var(--font-family-body);
+}
+
+.ecar-typography--display {
+    font-family: var(--font-family-heading);
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+.ecar-typography--h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
+
+.ecar-typography--h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
+
+.ecar-typography--h3 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+}
+
+.ecar-typography--body {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+}
+
+.ecar-typography--body-sm {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+}
+
+.ecar-typography--caption {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+}
+
+.ecar-typography--overline {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Cores */
+
+.ecar-typography--primary {
+    color: var(--color-text-primary);
+}
+
+.ecar-typography--secondary {
+    color: var(--color-text-secondary);
+}
+
+.ecar-typography--inverse {
+    color: var(--color-text-inverse);
+}
+
+.ecar-typography--brand {
+    color: var(--color-brand-primary);
+}
+
+.ecar-typography--success {
+    color: var(--color-success);
+}
+
+.ecar-typography--warning {
+    color: var(--color-warning);
+}
+
+.ecar-typography--danger {
+    color: var(--color-danger);
+}
+
+.ecar-typography--info {
+    color: var(--color-info);
+}

@@ -1,0 +1,20 @@
+.ecar-card {
+    width: 100%;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Padding */
+.ecar-card--sm {
+    padding: var(--spacing-3);
+}
+
+.ecar-card--md {
+    padding: var(--spacing-4);
+}
+
+.ecar-card--lg {
+    padding: var(--spacing-6);
+}

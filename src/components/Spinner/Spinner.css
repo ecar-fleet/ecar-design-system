@@ -1,0 +1,57 @@
+.ecar-spinner {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-body);
+}
+
+.ecar-spinner__circle {
+    display: inline-block;
+    flex-shrink: 0;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-brand-primary);
+    border-radius: 50%;
+    animation: ecar-spinner-rotate 700ms linear infinite;
+}
+
+.ecar-spinner__label {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+/* Sizes */
+
+.ecar-spinner--sm .ecar-spinner__circle {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
+
+.ecar-spinner--md .ecar-spinner__circle {
+    width: 24px;
+    height: 24px;
+    border-width: 3px;
+}
+
+.ecar-spinner--lg .ecar-spinner__circle {
+    width: 36px;
+    height: 36px;
+    border-width: 3px;
+}
+
+/* Animation */
+
+@keyframes ecar-spinner-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .ecar-spinner__circle {
+        animation-duration: 1.5s;
+    }
+}
